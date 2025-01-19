@@ -6,10 +6,16 @@ This theme can be expressed in a number of different ways. Maybe you are cursed 
 
 Whatever the case you exist to influence your surroundings in some direct way. Have fun with the theme and do something weird with it. Themes are like a box you have to find your way out of. An escape room for game development. Be creative.
 
-Team Alpha discord alphatheredwolf https://github.com/variandra/ https://variandra.itch.io/
+Members:
 
-Romnicee discord romnice https://github.com/Merry-O/
+-Romnicee
+Discord: Romnicee
+GitHub: https://github.com/Merry-O
 
-xenoPulse Discord xenopulse
+-xenoPulse
+Discord: xenoPulse
+GitHub: https://github.com/Kaptinpigman
 
-Gris Discord grisdagrison
+-Gris
+Discord grisdagrison
+GitHub: https://github.com/GrissyGris
