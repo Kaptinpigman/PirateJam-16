@@ -8,20 +8,23 @@ Whatever the case you exist to influence your surroundings in some direct way. H
 
 Members:
 
+
 -Romnicee
 
-Discord: Romnicee
+Discord: romnice
 
 GitHub: https://github.com/Merry-O
 
+
 -xenoPulse
 
-Discord: xenoPulse
+Discord: xenopulse
 
 GitHub: https://github.com/Kaptinpigman
 
+
 -Gris
 
-Discord grisdagrison
+Discord: grisdagrison
 
 GitHub: https://github.com/GrissyGris
