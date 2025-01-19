@@ -1,6 +1,6 @@
 Rep for the Piratesoftware Game jam. https://itch.io/jam/pirate
 
-Jam Theme You Are The Weapon
+Jam Theme: You Are The Weapon
 
 This theme can be expressed in a number of different ways. Maybe you are cursed and become a weapon that other characters have to wield. Maybe you're an integrated organism that pilots a world destroying gun. Maybe you're Doom Guy. He's basically just a weapon, let's be real. Or even taking it a different direction maybe you're a weapon that kills things like viruses and saves people.
 
