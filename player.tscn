@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcs11navkuhv6"]
+
+[ext_resource type="Texture2D" uid="uid://dmd45tmgndfdi" path="res://icon.svg" id="1_ds487"]
+[ext_resource type="Script" path="res://player.gd" id="1_s6hpd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtsne"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uselu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ds487")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ovqj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j15cw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ds487")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_s6hpd")
+metadata/_edit_group_ = true
+
+[node name="PlayerCol" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vtsne")
+
+[node name="PlayerSpr" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.17, 0.17)
+sprite_frames = SubResource("SpriteFrames_uselu")
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+
+[node name="PlayerRange" type="Area2D" parent="."]
+
+[node name="PlayerCollRange" type="CollisionShape2D" parent="PlayerRange"]
+position = Vector2(21, 0)
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_7ovqj")
+
+[node name="PlayerSprAttack" type="AnimatedSprite2D" parent="PlayerRange"]
+position = Vector2(21, 5.00679e-06)
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_j15cw")
+animation = &"attack"
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="animation_finished" from="PlayerRange/PlayerSprAttack" to="." method="_on_player_spr_attack_animation_finished"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
