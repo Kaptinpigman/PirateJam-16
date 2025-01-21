@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcs11navkuhv6"]
+
+[ext_resource type="Texture2D" uid="uid://dmd45tmgndfdi" path="res://icon.svg" id="1_ds487"]
+[ext_resource type="Script" path="res://player.gd" id="1_s6hpd"]
+[ext_resource type="Texture2D" uid="uid://drkratu4jmad7" path="res://Bear (32x32).png" id="2_oe4bl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtsne"]
+size = Vector2(74, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uselu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oe4bl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ovqj"]
+size = Vector2(51, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j15cw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ds487")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_s6hpd")
+
+[node name="PlayerColl" type="CollisionShape2D" parent="."]
+position = Vector2(-26, 20.5)
+shape = SubResource("RectangleShape2D_vtsne")
+
+[node name="PlayerSpr" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-23, 4)
+scale = Vector2(2.44, 2.46)
+sprite_frames = SubResource("SpriteFrames_uselu")
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+
+[node name="PlayerAreaRange" type="Area2D" parent="."]
+
+[node name="PlayerCollRange" type="CollisionShape2D" parent="PlayerAreaRange"]
+position = Vector2(38.5, 20.5)
+shape = SubResource("RectangleShape2D_7ovqj")
+
+[node name="PlayerSprAttack" type="AnimatedSprite2D" parent="PlayerAreaRange"]
+position = Vector2(39, 20)
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_j15cw")
+animation = &"attack"
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="animation_finished" from="PlayerAreaRange/PlayerSprAttack" to="." method="_on_player_spr_attack_animation_finished"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
