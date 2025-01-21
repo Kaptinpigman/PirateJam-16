@@ -6,15 +6,16 @@ var direction=Vector2.ZERO
 var Cooldown = true
 var health = 3
 
-func _on_cooldown_timeout():
+func _on_cooldown_timeout(): 
 	Cooldown = true
 func _on_player_spr_attack_animation_finished():
-	$PlayerRange/PlayerSprAttack.visible = false
-	$PlayerRange/PlayerCollRange.disabled = true
+	$PlayerAreaRange/PlayerSprAttack.visible = false
+	$PlayerAreaRange/PlayerCollRange.disabled = true
 
 func _ready():
-	$PlayerRange/PlayerSprAttack.visible = false
-	
+	$PlayerAreaRange/PlayerSprAttack.visible = false
+	$PlayerAreaRange/PlayerCollRange.disabled = true
+
 func _physics_process(delta):#this stuff makes the player move
 	direction=Vector2.ZERO
 	if Input.is_action_pressed("move_up") and is_on_floor():
@@ -30,8 +31,9 @@ func _physics_process(delta):#this stuff makes the player move
 	if Input.is_action_just_pressed("attack") and Cooldown:
 		Cooldown = false
 		$Cooldown.start()
-		$PlayerRange/PlayerSprAttack.visible = true
-		$PlayerRange/PlayerSprAttack.play("attack")
-		$PlayerRange/PlayerCollRange.disabled = false
-		
+		$PlayerAreaRange/PlayerSprAttack.visible = true
+		$PlayerAreaRange/PlayerSprAttack.play("attack")
+		$PlayerAreaRange/PlayerCollRange.disabled = false
+	
+	
 	move_and_slide()
